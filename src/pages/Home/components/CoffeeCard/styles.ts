@@ -38,6 +38,7 @@ export const CoffeeTags = styled.div`
     font-weight: 700;
     padding: 0.25rem 0.5rem;
     border-radius: 100px;
+    text-transform: uppercase;
   }
 `
 

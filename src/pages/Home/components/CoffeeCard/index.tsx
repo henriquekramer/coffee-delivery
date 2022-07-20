@@ -1,20 +1,37 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import coffeeTradicional from '../../../../assets/tradicional.png'
+import { coffees } from '../../../../data/coffees'
+import { formatPrice } from '../../../../utils/formatPrice'
 import { CoffeeCardContainer, CoffeeOrderInfos, CoffeeTags } from './styles'
 
-export function CoffeeCard() {
+export interface Coffee {
+  id: number
+  tags: string[]
+  name: string
+  description: string
+  photo: string
+  price: number
+}
+
+interface CoffeeProps {
+  coffee: Coffee
+}
+
+export function CoffeeCard({ coffee }: CoffeeProps) {
+  const formattedPrice = formatPrice(coffee.price)
+
   return (
     <CoffeeCardContainer>
-      <img src={coffeeTradicional} alt="" />
+      <img src={`/coffees/${coffee.photo}`} alt="" />
       <CoffeeTags>
-        <h5>Tradicional</h5>
-        <h5>Gelado</h5>
+        {coffee.tags.map((tag) => (
+          <h5 key={`${coffee.id}${tag}`}>{tag}</h5>
+        ))}
       </CoffeeTags>
-      <h3>Expresso Tradicional</h3>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <h3>{coffee.name}</h3>
+      <p>{coffee.description}</p>
       <CoffeeOrderInfos>
         <p>
-          R$ <span>9,90</span>{' '}
+          R$ <span>{formattedPrice}</span>{' '}
         </p>
         <div>
           <button>
