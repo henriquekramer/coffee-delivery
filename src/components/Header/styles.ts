@@ -40,6 +40,7 @@ export const NavInfos = styled.div`
     margin-left: 0.75rem;
     line-height: 100%;
     position: relative;
+    transition: 0.2s;
 
     sup {
       position: absolute;
@@ -55,6 +56,10 @@ export const NavInfos = styled.div`
       justify-content: center;
       font-size: 0.75rem;
       font-weight: 700;
+    }
+
+    &:hover {
+      filter: brightness(0.97);
     }
   }
 `
