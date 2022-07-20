@@ -1,7 +1,15 @@
-import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { coffees } from '../../../../data/coffees'
+import { ShoppingCart } from 'phosphor-react'
+import { QuantityInput } from '../../../../components/QuantityInput'
+import { RegularText, TitleText } from '../../../../components/Typography'
 import { formatPrice } from '../../../../utils/formatPrice'
-import { CoffeeCardContainer, CoffeeOrderInfos, CoffeeTags } from './styles'
+import {
+  AddCartWrapper,
+  CardFooter,
+  CoffeeCardContainer,
+  Description,
+  Name,
+  Tags,
+} from './styles'
 
 export interface Coffee {
   id: number
@@ -22,30 +30,31 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
   return (
     <CoffeeCardContainer>
       <img src={`/coffees/${coffee.photo}`} alt="" />
-      <CoffeeTags>
+
+      <Tags>
         {coffee.tags.map((tag) => (
-          <h5 key={`${coffee.id}${tag}`}>{tag}</h5>
+          <span key={`${coffee.id}${tag}`}>{tag}</span>
         ))}
-      </CoffeeTags>
-      <h3>{coffee.name}</h3>
-      <p>{coffee.description}</p>
-      <CoffeeOrderInfos>
-        <p>
-          R$ <span>{formattedPrice}</span>{' '}
-        </p>
+      </Tags>
+
+      <Name>{coffee.name}</Name>
+      <Description>{coffee.description}</Description>
+
+      <CardFooter>
         <div>
-          <button>
-            <Minus size={14} />
-          </button>
-          <span>1</span>
-          <button>
-            <Plus size={14} />
-          </button>
+          <RegularText size="s">R$</RegularText>
+          <TitleText size="m" color="text" as="strong">
+            {formattedPrice}
+          </TitleText>
         </div>
-        <button>
-          <ShoppingCartSimple size={22} weight="fill" />
-        </button>
-      </CoffeeOrderInfos>
+
+        <AddCartWrapper>
+          <QuantityInput />
+          <button>
+            <ShoppingCart size={22} weight="fill" />
+          </button>
+        </AddCartWrapper>
+      </CardFooter>
     </CoffeeCardContainer>
   )
 }

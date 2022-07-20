@@ -1,13 +1,13 @@
-import { InfoWithIconContainer, IconContainer } from './styles'
 import { ReactNode } from 'react'
+import { IconContainer, InfoWithIconContainer } from './styles'
 
-interface BenefitItemProps {
+interface InfoWithIconProps {
   icon: ReactNode
   text: string | ReactNode
   iconBg: string
 }
 
-export function InfoWithIcon({ icon, text, iconBg }: BenefitItemProps) {
+export function InfoWithIcon({ icon, text, iconBg }: InfoWithIconProps) {
   return (
     <InfoWithIconContainer>
       <IconContainer iconBg={iconBg}>{icon}</IconContainer>

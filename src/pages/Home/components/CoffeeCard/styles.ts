@@ -1,95 +1,95 @@
 import styled from 'styled-components'
+import { RegularText, TitleText } from '../../../../components/Typography'
 
 export const CoffeeCardContainer = styled.div`
-  background: ${(props) => props.theme['gray-200']};
-  padding: 1.5rem;
+  width: 100%;
+  background: ${({ theme }) => theme.colors['base-card']};
   border-radius: 6px 36px 6px 36px;
+  padding: 1.25rem;
+  padding-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 
   img {
-    margin: -3rem 0 0.75rem;
-  }
-
-  h3 {
-    font: 700 1.25rem/1.625rem 'Baloo 2', cursive;
-    color: ${(props) => props.theme['gray-800']};
-  }
-
-  > p {
-    font-size: 0.875rem;
-    line-height: 1.15rem;
-    color: ${(props) => props.theme['gray-600']};
-    margin-top: 0.5rem;
-    text-align: center;
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-top: -1.25rem;
   }
 `
 
-export const CoffeeTags = styled.div`
-  display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1rem;
-
-  h5 {
-    background: ${(props) => props.theme['yellow-100']};
-    color: ${(props) => props.theme['yellow-500']};
-    font-size: 0.625rem;
-    font-weight: 700;
-    padding: 0.25rem 0.5rem;
-    border-radius: 100px;
-    text-transform: uppercase;
-  }
-`
-
-export const CoffeeOrderInfos = styled.div`
-  margin-top: 2rem;
+export const Tags = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
 
-  p {
-    font-size: 0.875rem;
-    margin-right: 1rem;
-
-    span {
-      font: 800 1.5rem/2rem 'Baloo 2', cursive;
-    }
+  span {
+    background: ${({ theme }) => theme.colors['brand-yellow-light']};
+    color: ${({ theme }) => theme.colors['brand-yellow-dark']};
+    font-size: ${({ theme }) => theme.textSizes['components-tag']};
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 700;
   }
+`
 
-  div {
-    background: ${(props) => props.theme['gray-400']};
+export const Name = styled(TitleText).attrs({
+  size: 's',
+  color: 'subtitle',
+  weight: '700',
+})`
+  margin-bottom: 0.5rem;
+`
+
+export const Description = styled(RegularText).attrs({
+  size: 's',
+  color: 'label',
+})`
+  margin-bottom: 2rem;
+`
+
+export const CardFooter = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > div {
     display: flex;
     align-items: center;
-    margin-right: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 6px;
-    gap: 0.25rem;
-    line-height: 100%;
+    gap: 3px;
 
-    button {
-      line-height: 100%;
-      border: none;
-      background: none;
-      color: ${(props) => props.theme['purple-500']};
-      cursor: pointer;
+    p {
+      line-height: 0.75rem;
     }
   }
+`
+
+export const AddCartWrapper = styled.div`
+  width: 7.5rem;
 
   > button {
-    padding: 0.5rem;
-    background: ${(props) => props.theme['purple-800']};
+    width: 2.375rem;
+    height: 2.375rem;
     border: none;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${({ theme }) => theme.colors['brand-purple-dark']};
+    color: ${({ theme }) => theme.colors['base-card']};
     border-radius: 6px;
-    transition: 0.2s;
-    line-height: 100%;
-
-    svg {
-      color: ${(props) => props.theme['gray-100']};
-    }
+    margin-left: 0.3rem;
+    transition: 0.4s;
 
     &:hover {
-      filter: brightness(1.25);
+      background: ${({ theme }) => theme.colors['brand-purple']};
     }
   }
 `

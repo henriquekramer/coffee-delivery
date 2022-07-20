@@ -1,37 +1,35 @@
 import styled from 'styled-components'
-import introBackground from '../../../../assets/intro-background.png'
+import introBackgroundImg from '../../../../assets/intro-background.png'
+import { rgba } from 'polished'
+import { TitleText } from '../../../../components/Typography'
 
 export const IntroContainer = styled.section`
   width: 100%;
   height: 34rem;
-  background: ${(props) => `url(${introBackground}) no-repeat center`};
+
+  background: ${({ theme }) => `url(${introBackgroundImg}) no-repeat center,
+      linear-gradient(
+        0deg,
+        ${theme.colors['base-white']} 0%,
+        ${rgba(theme.colors['base-background'], 0.2)} 50%,
+        ${theme.colors['base-background']} 100%
+      )`};
   background-size: cover;
 
-  img {
-    height: 100%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
+
 export const IntroContent = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 5.875rem 1rem;
+  gap: 3.5rem;
 `
-export const IntroInfos = styled.div`
-  margin-right: 2rem;
 
-  h1 {
-    font: 800 3rem/3.875rem 'Baloo 2', cursive;
-    color: ${(props) => props.theme['gray-900']};
-  }
-
-  > p {
-    font-size: 1.25rem;
-    color: ${(props) => props.theme['gray-800']};
-    line-height: 1.625rem;
-    margin-top: 1rem;
-  }
+export const IntroTitle = styled(TitleText)`
+  margin-bottom: 1rem;
 `
 
 export const BenefitsContainer = styled.div`
